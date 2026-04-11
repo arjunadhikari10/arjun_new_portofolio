@@ -73,7 +73,7 @@ const ContactSection = () => {
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label={s.label}
             >
-              <s.icon className="w-5 h-5" />
+              <span className="text-xs font-medium">{s.label}</span>
             </a>
           ))}
         </div>
