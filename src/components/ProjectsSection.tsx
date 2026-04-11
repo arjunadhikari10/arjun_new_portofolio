@@ -1,26 +1,48 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2 } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf } from "lucide-react";
 
 const projects = [
   {
     icon: Droplets,
-    title: "Groundwater Projects",
-    description: "Research on groundwater resources, aquifer characterization, and sustainable water management practices in Nepal.",
+    title: "Groundwater Discharge & Infiltration Modeling",
+    subtitle: "Kathmandu Valley",
+    description: "Numerical modeling of groundwater dynamics, recharge behavior, and rainfall interaction across the Kathmandu Valley using geospatial and hydrological data.",
+    tags: ["QGIS", "Python", "Hydrology"],
   },
   {
     icon: Mountain,
-    title: "Gyapche Landslide Project",
-    description: "Field investigation and geotechnical analysis of the Gyapche landslide — assessing causes, risks, and mitigation strategies.",
+    title: "Gyapche Landslide Analysis",
+    subtitle: "Slope Stability & Runout Simulation",
+    description: "Comprehensive slope stability assessment, runout simulation using r.avaflow, and susceptibility mapping. Funded by Nepal Flying Labs.",
+    tags: ["r.avaflow", "GIS", "Field Data"],
   },
   {
     icon: CloudRain,
-    title: "AET Determination of Nepal Landslide",
-    description: "Actual evapotranspiration analysis to understand moisture dynamics and their influence on landslide susceptibility in Nepal.",
+    title: "AET & Landslide Exposure Research",
+    subtitle: "Rainfall-Induced Geohazards",
+    description: "Determining allowable exposure time for un-stabilized road-cut slopes under variable rainfall, soil, slope, and groundwater conditions. NAST funded.",
+    tags: ["Data Science", "NAST", "25+ Landslides"],
   },
   {
     icon: Building2,
-    title: "Seismic Performance of Existing Building in Nepal",
-    description: "Structural vulnerability assessment and seismic performance evaluation of existing buildings using analytical methods.",
+    title: "Smart Traffic Management System",
+    subtitle: "Computer Vision Application",
+    description: "Computer vision and signal-processing-based system for real-time traffic flow estimation using image analysis and ML algorithms.",
+    tags: ["Python", "OpenCV", "ML"],
+  },
+  {
+    icon: Leaf,
+    title: "EcoScan App",
+    subtitle: "Concept Development",
+    description: "Conceptual environmental monitoring system developed during PleasHack hackathon, focusing on sustainability and ecological data collection.",
+    tags: ["Hackathon", "Concept", "Environment"],
+  },
+  {
+    icon: Droplets,
+    title: "Managed Aquifer Recharge (MAR)",
+    subtitle: "Economic Feasibility Study",
+    description: "Cost analysis and economic feasibility assessment of Managed Aquifer Recharge systems in Kathmandu Valley. Currently in starting phase.",
+    tags: ["Groundwater", "Economics", "Team"],
   },
 ];
 
@@ -34,32 +56,39 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-heading tracking-[0.2em] uppercase text-xs mb-3">Research</p>
+          <p className="text-primary font-heading tracking-[0.2em] uppercase text-xs mb-3">Portfolio</p>
           <h2 className="font-heading text-3xl md:text-5xl font-bold">
             My <span className="text-gradient">Projects</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-8 rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-500 hover:glow overflow-hidden"
+              transition={{ delay: i * 0.08 }}
+              className="group relative p-7 rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-500 hover:glow overflow-hidden flex flex-col"
             >
-              {/* Subtle gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <project.icon className="w-8 h-8 text-primary mb-5 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="font-heading text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+              <div className="relative z-10 flex-1 flex flex-col">
+                <project.icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="font-heading text-lg font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                <p className="text-primary/60 text-xs font-heading mb-3">{project.subtitle}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
                   {project.description}
                 </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground text-[11px] font-medium border border-border">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <span className="inline-flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer">
                   View Details <ArrowRight className="w-4 h-4" />
                 </span>
