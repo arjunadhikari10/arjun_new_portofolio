@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Facebook, Instagram } from "lucide-react";
+import { Mail, LinkedinIcon, GithubIcon, FacebookIcon, InstagramIcon } from "lucide-react";
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/arjunadhikari10/", label: "LinkedIn" },
