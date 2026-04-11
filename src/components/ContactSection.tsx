@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Mail, LinkedinIcon, GithubIcon, FacebookIcon, InstagramIcon } from "lucide-react";
+import { Mail, Link2, ExternalLink, Globe, Camera } from "lucide-react";
 
 const socials = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/arjunadhikari10/", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com/arjunadhikari10", label: "GitHub" },
-  { icon: Facebook, href: "https://www.facebook.com/geneius.b.arjun/", label: "Facebook" },
-  { icon: Instagram, href: "https://github.com/arjunadhikari10", label: "Instagram" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arjunadhikari10/" },
+  { label: "GitHub", href: "https://github.com/arjunadhikari10" },
+  { label: "Facebook", href: "https://www.facebook.com/geneius.b.arjun/" },
+  { label: "Instagram", href: "https://github.com/arjunadhikari10" },
 ];
 
 const ContactSection = () => {
