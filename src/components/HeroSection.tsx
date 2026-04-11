@@ -5,10 +5,14 @@ import { ArrowDown } from "lucide-react";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-background">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-primary/8 blur-[100px]" />
+      {/* Full-screen background image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://i.postimg.cc/fWvV6dBZ/IMG-7308.jpg"
+          alt="Mountain landscape"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center">
@@ -41,7 +45,7 @@ const HeroSection = () => {
             sequence={[
               "Civil Engineering Student",
               2000,
-              "Data Science Enthusiast",
+              "Research Enthusiast",
               2000,
               "Trekking Guide",
               2000,
@@ -56,19 +60,19 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="flex gap-4 justify-center"
+          className="flex gap-4 justify-center flex-wrap"
         >
           <a
-            href="#work"
-            className="px-8 py-3 rounded-lg font-heading font-medium text-sm tracking-wide bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+            href="#projects"
+            className="px-8 py-3 rounded-full font-heading font-medium text-sm tracking-wide bg-primary text-primary-foreground hover:scale-105 transition-transform"
           >
-            View My Work
+            View Projects
           </a>
           <a
-            href="#contact"
-            className="px-8 py-3 rounded-lg font-heading font-medium text-sm tracking-wide border border-border text-foreground hover:border-primary/50 transition-colors"
+            href="#timeline"
+            className="px-8 py-3 rounded-full font-heading font-medium text-sm tracking-wide border border-border text-foreground hover:border-primary/50 hover:scale-105 transition-all"
           >
-            Get in Touch
+            Explore Journey
           </a>
         </motion.div>
       </div>
