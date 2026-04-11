@@ -4,9 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Timeline", href: "#timeline" },
+  { label: "Projects", href: "#projects" },
+  { label: "Travels", href: "#travelling" },
   { label: "About", href: "#about" },
+  { label: "CV", href: "#cv" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -20,26 +21,23 @@ const Navbar = () => {
           AA
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex gap-8">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        {/* Mobile toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -54,7 +52,7 @@ const Navbar = () => {
                   key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   {l.label}
                 </a>
