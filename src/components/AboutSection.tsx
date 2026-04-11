@@ -1,4 +1,12 @@
 import { motion } from "framer-motion";
+import { FlaskConical, MapPin, Database, Brain } from "lucide-react";
+
+const highlights = [
+  { icon: FlaskConical, label: "NAST Funded Research" },
+  { icon: Database, label: "Data-Driven Engineering" },
+  { icon: Brain, label: "Machine Learning + GIS" },
+  { icon: MapPin, label: "Nepal Flying Labs" },
+];
 
 const AboutSection = () => {
   return (
@@ -11,7 +19,6 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="grid md:grid-cols-5 gap-12 items-center"
         >
-          {/* Personal Image */}
           <div className="md:col-span-2 flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -27,27 +34,41 @@ const AboutSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Decorative element */}
               <div className="absolute -bottom-3 -right-3 w-64 h-80 rounded-2xl border border-primary/20 -z-10" />
             </motion.div>
           </div>
 
-          {/* Text content */}
           <div className="md:col-span-3">
             <p className="text-primary font-heading tracking-[0.2em] uppercase text-xs mb-3">About</p>
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8">
-              A man on a journey to<br />
-              <span className="text-gradient">discover himself</span>
+              Engineer. Researcher.<br />
+              <span className="text-gradient">Explorer.</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              I am a civil engineering student at Pulchowk Campus, Kathmandu — originally from the beautiful city of Pokhara.
+              I'm a final-year Civil Engineering student at <span className="text-foreground font-medium">Pulchowk Campus, IOE</span> — originally from the lake city of Pokhara. My work sits at the intersection of geotechnical engineering, data science, and geospatial analysis.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Alongside my studies, I have a strong passion for data science and research, actively pursuing projects in groundwater analysis, landslide investigation, and seismic performance assessment.
+              I specialize in <span className="text-foreground">groundwater modeling</span>, <span className="text-foreground">landslide analysis</span>, and <span className="text-foreground">climate-induced geohazard assessment</span>. My research has been funded by the Nepal Academy of Science and Technology (NAST) and Nepal Flying Labs, with journal submissions to Groundwater for Sustainable Development.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              I cherish nature and love exploring the outdoors through traveling and trekking adventures across Nepal. When I'm not studying or researching, you'll find me on a trail somewhere in the Himalayas.
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Selected for HydroLab (University of Cincinnati) and Kathmandu Valley GeoLab (IOE–Duke University collaboration), I bring an interdisciplinary approach combining civil engineering fundamentals with machine learning and GIS-driven insights.
             </p>
+
+            <div className="grid grid-cols-2 gap-3">
+              {highlights.map((h, i) => (
+                <motion.div
+                  key={h.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <h.icon className="w-4 h-4 text-primary shrink-0" />
+                  <span>{h.label}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

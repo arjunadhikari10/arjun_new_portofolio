@@ -1,33 +1,21 @@
 import { motion } from "framer-motion";
-import { Download, GraduationCap, Briefcase, Code, Award, FlaskConical } from "lucide-react";
+import { Download, GraduationCap, Briefcase } from "lucide-react";
 
 const education = [
-  { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering, Lalitpur" },
-  { year: "2019–2021", title: "SOSHGS, Gandaki", detail: "Class 12 — GPA 3.78" },
-  { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "SEE — GPA 3.85" },
+  { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering — Tribhuvan University, Lalitpur" },
+  { year: "2019–2021", title: "SOS Hermann Gmeiner HSS", detail: "Science Faculty — Gandaki, Pokhara" },
+  { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "Primary & Secondary Education — Kaski, Nepal" },
 ];
 
 const experience = [
+  { year: "2025", title: "Researcher – HydroLab", detail: "University of Cincinnati — Hydrological research" },
+  { year: "2025", title: "Researcher – Kathmandu Valley GeoLab", detail: "IOE + Duke University collaboration" },
+  { year: "Ongoing", title: "Multi Hazard Risk Assessment Lab", detail: "IOE Pulchowk Campus — Geohazard research" },
   { year: "2023–Present", title: "Research Assistant", detail: "Groundwater & landslide studies at IOE" },
-  { year: "2022–Present", title: "Trekking Guide", detail: "Professional guide across Nepal's trails" },
+  { year: "Intern", title: "CodSoft", detail: "Programming, data handling & technical problem-solving" },
 ];
 
-const skills = ["Python", "QGIS", "AutoCAD", "SAP2000", "ETABS", "Machine Learning", "Data Visualization", "MS Office", "LaTeX"];
-
-const research = [
-  "Groundwater Resource Assessment",
-  "Gyapche Landslide Investigation",
-  "AET Determination for Landslide Analysis",
-  "Seismic Performance Evaluation",
-];
-
-const achievements = [
-  "IOE Entrance Top Ranker",
-  "Multiple Academic Excellence Awards",
-  "Represented Nepal in Bangalore (International Visit)",
-];
-
-const TimelineBlock = ({ items, icon: Icon }: { items: { year: string; title: string; detail: string }[]; icon: React.ElementType }) => (
+const TimelineBlock = ({ items }: { items: { year: string; title: string; detail: string }[] }) => (
   <div className="relative">
     <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
     {items.map((item, i) => (
@@ -71,82 +59,20 @@ const CVSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Education */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h3 className="font-heading text-lg font-semibold mb-6 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-primary" /> Education
             </h3>
-            <TimelineBlock items={education} icon={GraduationCap} />
+            <TimelineBlock items={education} />
           </motion.div>
 
-          {/* Experience */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
             <h3 className="font-heading text-lg font-semibold mb-6 flex items-center gap-2">
               <Briefcase className="w-5 h-5 text-primary" /> Experience
             </h3>
-            <TimelineBlock items={experience} icon={Briefcase} />
+            <TimelineBlock items={experience} />
           </motion.div>
         </div>
-
-        {/* Skills */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12"
-        >
-          <h3 className="font-heading text-lg font-semibold mb-4 flex items-center gap-2">
-            <Code className="w-5 h-5 text-primary" /> Skills
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium border border-border hover:border-primary/40 transition-colors"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Research */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12"
-        >
-          <h3 className="font-heading text-lg font-semibold mb-4 flex items-center gap-2">
-            <FlaskConical className="w-5 h-5 text-primary" /> Research
-          </h3>
-          <ul className="space-y-2">
-            {research.map((r) => (
-              <li key={r} className="text-muted-foreground text-sm pl-4 border-l-2 border-primary/30">
-                {r}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        {/* Achievements */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12"
-        >
-          <h3 className="font-heading text-lg font-semibold mb-4 flex items-center gap-2">
-            <Award className="w-5 h-5 text-primary" /> Achievements
-          </h3>
-          <ul className="space-y-2">
-            {achievements.map((a) => (
-              <li key={a} className="text-muted-foreground text-sm pl-4 border-l-2 border-primary/30">
-                {a}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
       </div>
     </section>
   );

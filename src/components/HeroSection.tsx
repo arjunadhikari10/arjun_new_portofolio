@@ -5,7 +5,6 @@ import { ArrowDown } from "lucide-react";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-screen background image */}
       <div className="absolute inset-0">
         <img
           src="https://i.postimg.cc/fWvV6dBZ/IMG-7308.jpg"
@@ -43,11 +42,13 @@ const HeroSection = () => {
         >
           <TypeAnimation
             sequence={[
-              "Civil Engineering Student",
+              "Civil Engineering Researcher",
               2000,
-              "Research Enthusiast",
+              "Geohazard & Groundwater Analyst",
               2000,
-              "Trekking Guide",
+              "Data Science Enthusiast",
+              2000,
+              "Trekking Guide & Explorer",
               2000,
             ]}
             repeat={Infinity}
@@ -69,10 +70,10 @@ const HeroSection = () => {
             View Projects
           </a>
           <a
-            href="#timeline"
+            href="#research"
             className="px-8 py-3 rounded-full font-heading font-medium text-sm tracking-wide border border-border text-foreground hover:border-primary/50 hover:scale-105 transition-all"
           >
-            Explore Journey
+            Explore Research
           </a>
         </motion.div>
       </div>

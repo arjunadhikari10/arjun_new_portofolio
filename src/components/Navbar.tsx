@@ -5,6 +5,9 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
+  { label: "Research", href: "#research" },
+  { label: "Skills", href: "#skills" },
+  { label: "Achievements", href: "#achievements" },
   { label: "Travels", href: "#travelling" },
   { label: "About", href: "#about" },
   { label: "CV", href: "#cv" },
@@ -21,7 +24,7 @@ const Navbar = () => {
           AA
         </a>
 
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden lg:flex gap-6">
           {links.map((l) => (
             <a
               key={l.label}
@@ -33,7 +36,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -44,7 +47,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-background overflow-hidden"
+            className="lg:hidden border-t border-border bg-background overflow-hidden"
           >
             <div className="flex flex-col px-6 py-4 gap-4">
               {links.map((l) => (
