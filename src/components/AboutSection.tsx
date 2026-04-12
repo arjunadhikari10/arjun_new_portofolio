@@ -29,13 +29,9 @@ const AboutSection = () => {
             >
               <div className="w-64 h-80 rounded-2xl overflow-hidden glow bg-gradient-to-br from-primary/20 to-accent/10">
                 <img
-                  src="https://i.postimg.cc/mgfKCcWT/IMG-6864.avif"
+                  src="https://i.postimg.cc/vmtJrYXp/Subject.png"
                   alt="Arjun Adhikari"
-                  className="w-full h-full object-cover mix-blend-normal"
-                  style={{
-                    maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
-                    WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
-                  }}
+                  className="w-full h-full object-contain mix-blend-normal"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 w-64 h-80 rounded-2xl border border-primary/20 -z-10" />
