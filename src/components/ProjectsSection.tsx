@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin } from "lucide-react";
 
-const projects = [
+interface Project {
+  icon: React.ElementType;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  thumbnail?: string;
+  link?: string;
+}
+
+const projects: Project[] = [
   {
     icon: Droplets,
     title: "Groundwater Discharge & Infiltration Modeling",
@@ -43,6 +53,15 @@ const projects = [
     subtitle: "Economic Feasibility Study",
     description: "Cost analysis and economic feasibility assessment of Managed Aquifer Recharge systems in Kathmandu Valley. Currently in starting phase.",
     tags: ["Groundwater", "Economics", "Team"],
+  },
+  {
+    icon: MapPin,
+    title: "10 Days Survey Camp",
+    subtitle: "Maps & Reports",
+    description: "Comprehensive field survey camp covering topographic mapping, traversing, leveling, and detailed report preparation with professional-grade maps.",
+    tags: ["Surveying", "AutoCAD", "Field Work"],
+    thumbnail: "https://i.postimg.cc/3JDJgGGb/Screenshot-2026-04-12-at-8-49-20-AM.png",
+    link: "https://drive.google.com/drive/u/0/folders/1nIWM93hoA91paT84IWmWTjzgsiXusxeC",
   },
 ];
 
