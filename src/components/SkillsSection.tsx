@@ -167,14 +167,18 @@ const SkillsSection = () => {
             <Sparkles className="w-5 h-5 text-primary" /> Currently Learning
           </h3>
           <div className="flex flex-wrap gap-3 justify-center">
-            {currentlyLearning.map((item) => (
-              <span
+            {currentlyLearning.map((item, i) => (
+              <motion.span
                 key={item}
-                className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium border border-primary/20 animate-pulse"
-                style={{ animationDuration: "3s" }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/15 to-accent/15 text-primary text-sm font-semibold border border-primary/30 shadow-sm shadow-primary/10 cursor-default"
               >
-                {item}
-              </span>
+                🔄 {item}
+              </motion.span>
             ))}
           </div>
         </motion.div>
