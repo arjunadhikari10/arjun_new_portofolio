@@ -3,8 +3,8 @@ import { Download, GraduationCap, Briefcase } from "lucide-react";
 
 const education = [
   { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering — Tribhuvan University, Lalitpur" },
-  { year: "2019–2021", title: "SOS Hermann Gmeiner HSS", detail: "Science Faculty — Gandaki, Pokhara" },
-  { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "Primary & Secondary Education — Kaski, Nepal" },
+  { year: "2019–2021", title: "SOS Hermann Gmeiner HSS", detail: "Science Faculty — Gandaki, Pokhara • GPA: 3.78/4.0" },
+  { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "Primary & Secondary Education (SEE) — Kaski, Nepal • GPA: 3.85/4.0" },
 ];
 
 const experience = [
@@ -37,6 +37,13 @@ const TimelineBlock = ({ items }: { items: { year: string; title: string; detail
 );
 
 const CVSection = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Arjun_Adhikari_CV.pdf";
+    link.download = "Arjun_Adhikari_CV.pdf";
+    link.click();
+  };
+
   return (
     <section id="cv" className="py-24">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -50,12 +57,12 @@ const CVSection = () => {
           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">
             My <span className="text-gradient">CV</span>
           </h2>
-          <a
-            href="#"
+          <button
+            onClick={handleDownload}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-heading font-medium text-sm hover:scale-105 transition-transform"
           >
             <Download className="w-4 h-4" /> Download CV
-          </a>
+          </button>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
