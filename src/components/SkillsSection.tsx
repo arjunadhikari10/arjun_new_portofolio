@@ -48,6 +48,8 @@ const categories: SkillCategory[] = [
       { name: "ArcGIS Pro", level: "Advanced", percent: 75, tooltip: "Geodatabase management & geoprocessing" },
       { name: "r.avaflow", level: "Advanced", percent: 72, tooltip: "Landslide runout simulation & debris flow modeling" },
       { name: "GRASS GIS", level: "Intermediate", percent: 60, tooltip: "Hydrological & terrain analysis" },
+      { name: "Google Earth Pro", level: "Expert", percent: 88, tooltip: "Terrain visualization, KML mapping & field verification" },
+      { name: "GeoStudio Seep/W, Slope/W", level: "Advanced", percent: 74, tooltip: "Seepage & slope stability analysis" },
     ],
   },
   {
@@ -65,6 +67,7 @@ const categories: SkillCategory[] = [
     skills: [
       { name: "Property Valuation", level: "Advanced", percent: 80, tooltip: "Professional valuation report writing" },
       { name: "Rate Analysis", level: "Advanced", percent: 78, tooltip: "Cost estimation & BOQ preparation" },
+      { name: "OpenSees", level: "Intermediate", percent: 55, tooltip: "Structural & seismic simulation framework" },
     ],
   },
 ];
@@ -74,7 +77,6 @@ const currentlyLearning = [
   "LaTeX",
   "Google Earth Engine",
   "Plaxis 2D",
-  "OpenSees",
 ];
 
 const SkillBar = ({ skill, delay }: { skill: Skill; delay: number }) => {
