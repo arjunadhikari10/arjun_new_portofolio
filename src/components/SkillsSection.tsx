@@ -34,30 +34,29 @@ const categories: SkillCategory[] = [
     icon: Code,
     title: "Programming & Data Science",
     skills: [
-      { name: "Python", level: "Expert", percent: 90, tooltip: "Pandas, NumPy, GeoPandas — data analysis & geospatial scripting" },
-      { name: "Scikit-learn", level: "Advanced", percent: 75, tooltip: "ML models for landslide susceptibility & prediction" },
-      { name: "TensorFlow / Keras", level: "Intermediate", percent: 60, tooltip: "Deep learning for geohazard classification" },
+      { name: "NumPy & Pandas", level: "Expert", percent: 90, tooltip: "Data wrangling, analysis & geospatial scripting" },
+      { name: "Machine Learning (Scikit-learn)", level: "Advanced", percent: 75, tooltip: "ML models for landslide susceptibility & prediction" },
       { name: "Matplotlib", level: "Advanced", percent: 80, tooltip: "Publication-quality plots for research papers" },
+      { name: "C Programming", level: "Intermediate", percent: 55, tooltip: "Fundamentals, data structures & algorithmic thinking" },
     ],
   },
   {
     icon: Map,
     title: "GIS & Modeling",
     skills: [
-      { name: "QGIS", level: "Expert", percent: 92, tooltip: "Spatial analysis, terrain modeling, land-use mapping" },
+      { name: "QGIS", level: "Advanced", percent: 78, tooltip: "Spatial analysis, terrain modeling, land-use mapping" },
       { name: "ArcGIS Pro", level: "Advanced", percent: 75, tooltip: "Geodatabase management & geoprocessing" },
-      { name: "r.avaflow", level: "Expert", percent: 88, tooltip: "Landslide runout simulation & debris flow modeling" },
-      { name: "GRASS GIS", level: "Advanced", percent: 70, tooltip: "Hydrological & terrain analysis" },
+      { name: "r.avaflow", level: "Advanced", percent: 72, tooltip: "Landslide runout simulation & debris flow modeling" },
+      { name: "GRASS GIS", level: "Intermediate", percent: 60, tooltip: "Hydrological & terrain analysis" },
     ],
   },
   {
     icon: PenTool,
     title: "Structural & Drafting",
     skills: [
-      { name: "ETABS", level: "Advanced", percent: 78, tooltip: "Seismic analysis & structural performance evaluation" },
       { name: "AutoCAD", level: "Expert", percent: 85, tooltip: "2D/3D drafting for civil engineering projects" },
       { name: "SketchUp", level: "Intermediate", percent: 65, tooltip: "3D modeling & visualization" },
-      { name: "LaTeX", level: "Advanced", percent: 75, tooltip: "Technical writing for journal submissions" },
+      { name: "Canva Pro", level: "Advanced", percent: 78, tooltip: "Professional design, presentations & visual content" },
     ],
   },
   {
@@ -66,16 +65,16 @@ const categories: SkillCategory[] = [
     skills: [
       { name: "Property Valuation", level: "Advanced", percent: 80, tooltip: "Professional valuation report writing" },
       { name: "Rate Analysis", level: "Advanced", percent: 78, tooltip: "Cost estimation & BOQ preparation" },
-      { name: "Hydrology", level: "Expert", percent: 88, tooltip: "Groundwater dynamics & recharge analysis" },
-      { name: "Geotechnical Engineering", level: "Expert", percent: 90, tooltip: "Slope stability, soil mechanics, landslide investigation" },
     ],
   },
 ];
 
 const currentlyLearning = [
-  "Advanced Python for Data Science",
-  "Advanced GIS Applications",
-  "Research Writing with LaTeX",
+  "ETABS",
+  "LaTeX",
+  "Google Earth Engine",
+  "Plaxis 2D",
+  "OpenSees",
 ];
 
 const SkillBar = ({ skill, delay }: { skill: Skill; delay: number }) => {
@@ -104,7 +103,6 @@ const SkillBar = ({ skill, delay }: { skill: Skill; delay: number }) => {
           className={`h-full rounded-full bg-gradient-to-r ${levelColors[skill.level]}`}
         />
       </div>
-      {/* Tooltip */}
       {hovered && (
         <motion.div
           initial={{ opacity: 0, y: 5 }}

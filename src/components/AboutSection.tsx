@@ -27,11 +27,15 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="w-64 h-80 rounded-2xl overflow-hidden border-2 border-border glow">
+              <div className="w-64 h-80 rounded-2xl overflow-hidden glow bg-gradient-to-br from-primary/20 to-accent/10">
                 <img
                   src="https://i.postimg.cc/mgfKCcWT/IMG-6864.avif"
                   alt="Arjun Adhikari"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover mix-blend-normal"
+                  style={{
+                    maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+                  }}
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 w-64 h-80 rounded-2xl border border-primary/20 -z-10" />
