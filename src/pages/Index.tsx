@@ -11,23 +11,26 @@ import AboutSection from "@/components/AboutSection";
 import CVSection from "@/components/CVSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const Index = () => (
-  <div className="scroll-smooth">
-    <Navbar />
-    <HeroSection />
-    <AboutSection />
-    <ProjectsSection />
-    <ResearchSection />
-    <SkillsSection />
-    <AchievementsSection />
-    <ExperienceSection />
-    <CertificatesSection />
-    <TravellingSection />
-    <CVSection />
-    <ContactSection />
-    <Footer />
-  </div>
+  <ThemeProvider>
+    <div className="scroll-smooth">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <ResearchSection />
+      <SkillsSection />
+      <AchievementsSection />
+      <ExperienceSection />
+      <CertificatesSection />
+      <TravellingSection />
+      <CVSection />
+      <ContactSection />
+      <Footer />
+    </div>
+  </ThemeProvider>
 );
 
 export default Index;
