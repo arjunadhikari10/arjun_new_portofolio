@@ -29,7 +29,7 @@ const AboutSection = () => {
             >
               <div className="w-64 h-80 rounded-2xl overflow-hidden glow bg-gradient-to-br from-primary/20 to-accent/10">
                 <img
-                  src="https://i.postimg.cc/vmtJrYXp/Subject.png"
+                  src="https://i.postimg.cc/6pYSqjQz/Subject-2.png"
                   alt="Arjun Adhikari"
                   className="w-full h-full object-contain mix-blend-normal"
                 />
