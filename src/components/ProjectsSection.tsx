@@ -50,6 +50,7 @@ const projects: Project[] = [
     subtitle: "Concept Development",
     description: "Conceptual environmental monitoring system developed during PleasHack hackathon, focusing on sustainability and ecological data collection.",
     tags: ["Hackathon", "Concept", "Environment"],
+    thumbnail: "https://i.postimg.cc/NM8JydWH/Screenshot-2026-04-14-at-4-24-02-PM.png",
   },
   {
     icon: Droplets,
