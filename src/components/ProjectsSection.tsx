@@ -26,6 +26,7 @@ const projects: Project[] = [
     subtitle: "Slope Stability & Runout Simulation",
     description: "Comprehensive slope stability assessment, runout simulation using r.avaflow, and susceptibility mapping. Funded by Nepal Flying Labs.",
     tags: ["r.avaflow", "GIS", "Field Data"],
+    thumbnail: "https://i.postimg.cc/g0smvK9y/Gyapche.avif",
   },
   {
     icon: CloudRain,
