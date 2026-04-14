@@ -6,27 +6,27 @@ const travels = [
   {
     title: "Annapurna Base Camp Trek",
     location: "Annapurna Region",
-    image: "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=800&q=80",
+    image: "https://i.postimg.cc/0jpkF1Mt/ABC.avif",
   },
   {
     title: "Poonhill Trek",
     location: "Ghorepani, Myagdi",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80",
+    image: "https://i.postimg.cc/L4v0k00G/poonhill.avif",
   },
   {
     title: "Kaligandaki Corridor Field Visit",
-    location: "Kaligandaki Valley",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    location: "Muktinath, Kaligandaki Valley",
+    image: "https://i.postimg.cc/wxcYCV4Z/Muktinath.avif",
   },
   {
     title: "Mardi Base Camp Trek",
     location: "Mardi Himal",
-    image: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&q=80",
+    image: "https://i.postimg.cc/7Zrsq8Cm/IMG-2689.avif",
   },
   {
     title: "Bangalore Trip",
     location: "Representing Nepal 🇳🇵",
-    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=80",
+    image: "https://i.postimg.cc/FYm1CFG0/bengaluru.avif",
   },
 ];
 

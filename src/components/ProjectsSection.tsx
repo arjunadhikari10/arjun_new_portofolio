@@ -18,6 +18,7 @@ const projects: Project[] = [
     subtitle: "Kathmandu Valley",
     description: "Numerical modeling of groundwater dynamics, recharge behavior, and rainfall interaction across the Kathmandu Valley using geospatial and hydrological data.",
     tags: ["QGIS", "Python", "Hydrology"],
+    thumbnail: "https://i.postimg.cc/bvTvNhmv/Gw-model.avif",
   },
   {
     icon: Mountain,
@@ -32,6 +33,7 @@ const projects: Project[] = [
     subtitle: "Rainfall-Induced Geohazards",
     description: "Determining allowable exposure time for un-stabilized road-cut slopes under variable rainfall, soil, slope, and groundwater conditions. NAST funded.",
     tags: ["Data Science", "NAST", "25+ Landslides"],
+    thumbnail: "https://i.postimg.cc/ncyKq4pC/AET.avif",
   },
   {
     icon: Building2,
@@ -39,6 +41,7 @@ const projects: Project[] = [
     subtitle: "Computer Vision Application",
     description: "Computer vision and signal-processing-based system for real-time traffic flow estimation using image analysis and ML algorithms.",
     tags: ["Python", "OpenCV", "ML"],
+    thumbnail: "https://i.postimg.cc/8crDWQmG/traffic-model.avif",
   },
   {
     icon: Leaf,
