@@ -9,6 +9,7 @@ interface Project {
   tags: string[];
   thumbnail?: string;
   link?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
@@ -47,10 +48,12 @@ const projects: Project[] = [
   {
     icon: Leaf,
     title: "EcoScan App",
-    subtitle: "Concept Development",
+    subtitle: "Concept Development • Live Demo Available",
     description: "Conceptual environmental monitoring system developed during PleasHack hackathon, focusing on sustainability and ecological data collection.",
     tags: ["Hackathon", "Concept", "Environment"],
     thumbnail: "https://i.postimg.cc/NM8JydWH/Screenshot-2026-04-14-at-4-24-02-PM.png",
+    link: "https://ecoscan.arjunadhikari10.com.np/",
+    featured: true,
   },
   {
     icon: Droplets,
@@ -100,7 +103,7 @@ const ProjectsSection = () => {
               >
                 <Wrapper
                   {...wrapperProps}
-                  className="group relative rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-500 hover:glow overflow-hidden flex flex-col h-full"
+                  className={`group relative rounded-2xl border bg-card transition-all duration-500 hover:glow overflow-hidden flex flex-col h-full ${project.featured ? 'border-primary/50 ring-1 ring-primary/20 shadow-lg shadow-primary/5 hover:border-primary/60' : 'border-border hover:border-primary/30'}`}
                 >
                   {project.thumbnail && (
                     <div className="w-full h-40 overflow-hidden">
@@ -125,9 +128,15 @@ const ProjectsSection = () => {
                           </span>
                         ))}
                       </div>
-                      <span className="inline-flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer">
-                        {project.link ? "Open Folder" : "View Details"} <ArrowRight className="w-4 h-4" />
-                      </span>
+                      {project.featured && project.link ? (
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:scale-105 transition-transform cursor-pointer">
+                          🚀 Try App <ArrowRight className="w-4 h-4" />
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer">
+                          {project.link ? "Open Folder" : "View Details"} <ArrowRight className="w-4 h-4" />
+                        </span>
+                      )}
                     </div>
                   </div>
                 </Wrapper>
