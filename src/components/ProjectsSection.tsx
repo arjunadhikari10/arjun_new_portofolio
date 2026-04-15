@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone } from "lucide-react";
 
 interface Project {
   icon: React.ElementType;
@@ -10,6 +11,7 @@ interface Project {
   thumbnail?: string;
   link?: string;
   featured?: boolean;
+  embedUrl?: string;
 }
 
 const projects: Project[] = [
@@ -51,9 +53,9 @@ const projects: Project[] = [
     subtitle: "Concept Development • Live Demo Available",
     description: "Conceptual environmental monitoring system developed during PleasHack hackathon, focusing on sustainability and ecological data collection.",
     tags: ["Hackathon", "Concept", "Environment"],
-    thumbnail: "https://i.postimg.cc/NM8JydWH/Screenshot-2026-04-14-at-4-24-02-PM.png",
     link: "https://ecoscan.arjunadhikari10.com.np/",
     featured: true,
+    embedUrl: "https://ecoscan.arjunadhikari10.com.np/",
   },
   {
     icon: Droplets,
@@ -90,7 +92,7 @@ const ProjectsSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, i) => {
+          {projects.filter(p => !p.embedUrl).map((project, i) => {
             const Wrapper = project.link ? 'a' : 'div';
             const wrapperProps = project.link ? { href: project.link, target: "_blank", rel: "noopener noreferrer" } : {};
             return (
@@ -128,15 +130,9 @@ const ProjectsSection = () => {
                           </span>
                         ))}
                       </div>
-                      {project.featured && project.link ? (
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:scale-105 transition-transform cursor-pointer">
-                          🚀 Try App <ArrowRight className="w-4 h-4" />
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer">
-                          {project.link ? "Open Folder" : "View Details"} <ArrowRight className="w-4 h-4" />
-                        </span>
-                      )}
+                      <span className="inline-flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer">
+                        {project.link ? "Open Folder" : "View Details"} <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
                   </div>
                 </Wrapper>
@@ -144,6 +140,11 @@ const ProjectsSection = () => {
             );
           })}
         </div>
+
+        {/* Featured EcoScan Embed */}
+        {projects.filter(p => p.embedUrl).map((project) => (
+          <EcoScanEmbed key={project.title} project={project} />
+        ))}
       </div>
     </section>
   );
