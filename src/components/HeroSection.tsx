@@ -48,7 +48,7 @@ const HeroSection = () => {
               2000,
               "Data Science Enthusiast",
               2000,
-              "Trekking Guide & Explorer",
+              "Explorer",
               2000,
             ]}
             repeat={Infinity}
