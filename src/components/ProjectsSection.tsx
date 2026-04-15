@@ -75,6 +75,116 @@ const projects: Project[] = [
   },
 ];
 
+const EcoScanEmbed = ({ project }: { project: Project }) => {
+  const [isInteracting, setIsInteracting] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="max-w-5xl mx-auto mt-12"
+    >
+      <div className="relative rounded-2xl border border-primary/40 ring-1 ring-primary/20 bg-card overflow-hidden shadow-xl shadow-primary/10">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-gradient-to-r from-primary/10 via-transparent to-primary/5">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-primary/20">
+              <Leaf className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-foreground flex items-center gap-2">
+                {project.title}
+                <span className="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-wider animate-pulse">Live</span>
+              </h3>
+              <p className="text-primary/60 text-xs font-heading">{project.subtitle}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1.5">
+              {project.tags.map((tag) => (
+                <span key={tag} className="px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground text-[10px] font-medium border border-border hidden sm:inline-block">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-primary-foreground text-xs font-medium hover:scale-105 transition-transform"
+            >
+              <ExternalLink className="w-3 h-3" /> Open Full App
+            </a>
+          </div>
+        </div>
+
+        {/* Phone mockup with iframe */}
+        <div className="grid md:grid-cols-[1fr_280px] gap-0">
+          {/* Desktop iframe */}
+          <div className="relative bg-muted/30 p-4">
+            <div className="rounded-lg overflow-hidden border border-border/50 shadow-inner bg-background">
+              <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 border-b border-border/50">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+                </div>
+                <div className="flex-1 text-center">
+                  <span className="text-[10px] text-muted-foreground font-mono">ecoscan.arjunadhikari10.com.np</span>
+                </div>
+              </div>
+              <div 
+                className={`relative transition-all duration-300 ${isInteracting ? 'ring-2 ring-primary/40' : ''}`}
+                onMouseEnter={() => setIsInteracting(true)}
+                onMouseLeave={() => setIsInteracting(false)}
+              >
+                <iframe
+                  src={project.embedUrl}
+                  className="w-full h-[420px] border-0"
+                  title={project.title}
+                  loading="lazy"
+                  allow="accelerometer; camera; geolocation"
+                />
+                {!isInteracting && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-background/30 backdrop-blur-[1px] cursor-pointer transition-opacity">
+                    <div className="flex flex-col items-center gap-2 text-foreground">
+                      <Smartphone className="w-8 h-8 text-primary animate-bounce" />
+                      <span className="text-sm font-medium">Click to interact with the app</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Side info panel */}
+          <div className="p-6 border-l border-border/50 flex flex-col justify-center bg-gradient-to-b from-primary/5 to-transparent hidden md:flex">
+            <Leaf className="w-10 h-10 text-primary mb-4" />
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              {project.description}
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                Interactive live demo
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                Built during PleasHack Hackathon
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                Environmental monitoring concept
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24">
