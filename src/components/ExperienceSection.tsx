@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { Beaker, GraduationCap, Building2, Users, Mic2 } from "lucide-react";
 
+const education = [
+  { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering — Tribhuvan University, Lalitpur" },
+  { year: "2019–2021", title: "SOS Hermann Gmeiner HSS", detail: "Science Faculty — Gandaki, Pokhara • GPA: 3.78/4.0" },
+  { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "Primary & Secondary Education (SEE) — Kaski, Nepal • GPA: 3.85/4.0" },
+];
+
 const labs = [
   {
     icon: Beaker,
@@ -66,6 +72,31 @@ const ExperienceSection = () => {
             <span className="text-gradient">Experience</span> & Leadership
           </h2>
         </motion.div>
+
+        {/* Education */}
+        <div className="mb-16">
+          <h3 className="font-heading text-lg font-semibold mb-6 flex items-center gap-2">
+            <GraduationCap className="w-5 h-5 text-primary" /> Education
+          </h3>
+          <div className="relative max-w-xl">
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
+            {education.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative pl-12 pb-8 last:pb-0"
+              >
+                <div className="absolute left-2.5 top-1 w-3 h-3 rounded-full bg-primary border-2 border-background" />
+                <span className="text-primary font-heading text-sm font-medium">{item.year}</span>
+                <h4 className="font-heading text-base font-semibold mt-1">{item.title}</h4>
+                <p className="text-muted-foreground text-sm mt-0.5">{item.detail}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Lab Experience */}
         <div className="mb-16">
