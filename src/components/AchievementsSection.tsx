@@ -29,7 +29,6 @@ const achievements: Achievement[] = [
   { medal: "silver", title: "2nd Place – Model Competition", event: "Thapathali Campus", year: "2024" },
   { medal: "bronze", title: "3rd Place – Model Competition", event: "KEC", year: "2024" },
   { medal: "special", title: "Popular Choice Award", event: "LOCUS", year: "2024" },
-  { medal: "special", title: "NGS Conference Attendee", event: "Nepal Geotechnical Society", year: "2024" },
 ];
 
 type FilterType = "all" | "gold" | "silver" | "bronze";

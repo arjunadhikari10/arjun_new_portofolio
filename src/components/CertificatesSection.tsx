@@ -3,12 +3,6 @@ import { Award, Globe, Wrench, BookOpen } from "lucide-react";
 
 const certificates = [
   {
-    icon: Globe,
-    title: "Cross Connect Clash – Winner",
-    issuer: "Nirmaan ISCE 2025, India",
-    description: "Represented Nepal and won gold at the international civil engineering competition in Bangalore.",
-  },
-  {
     icon: Award,
     title: "Shark Tank Civil – Participant",
     issuer: "Nirmaan ISCE 2025, India",
@@ -21,12 +15,6 @@ const certificates = [
     description: "Sustainability-focused competition on carbon reduction strategies.",
   },
   {
-    icon: Wrench,
-    title: "Civil Engineering Hackathon – Gold",
-    issuer: "National Level",
-    description: "Won 1st place for innovative engineering solutions under time-constrained conditions.",
-  },
-  {
     icon: BookOpen,
     title: "Nepal Geotechnical Society Conference",
     issuer: "NGS",
@@ -34,27 +22,9 @@ const certificates = [
   },
   {
     icon: Award,
-    title: "National-Level Ideathon – Gold",
-    issuer: "National Level",
-    description: "Won 1st place for presenting a compelling idea addressing national infrastructure challenges.",
-  },
-  {
-    icon: Wrench,
-    title: "Sankalpa-2025 Model Making – Winner",
-    issuer: "Sankalpa 2025",
-    description: "Built and presented a winning civil engineering model at the national competition.",
-  },
-  {
-    icon: Award,
     title: "Please Hack – Participant",
     issuer: "Hackathon",
     description: "Developed the EcoScan concept for environmental monitoring and sustainability.",
-  },
-  {
-    icon: Award,
-    title: "LOCUS – Popular Choice Award",
-    issuer: "LOCUS",
-    description: "Received the popular choice award for an outstanding project presentation.",
   },
 ];
 
