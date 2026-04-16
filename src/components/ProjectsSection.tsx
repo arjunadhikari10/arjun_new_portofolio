@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone, Shield } from "lucide-react";
 
 interface Project {
   icon: React.ElementType;
@@ -63,6 +63,14 @@ const projects: Project[] = [
     subtitle: "Economic Feasibility Study",
     description: "Cost analysis and economic feasibility assessment of Managed Aquifer Recharge systems in Kathmandu Valley. Currently in starting phase.",
     tags: ["Groundwater", "Economics", "Team"],
+  },
+  {
+    icon: Shield,
+    title: "Rapid Visual Seismic Screening (RVS)",
+    subtitle: "Seismic Performance Evaluation",
+    description: "Integrates Rapid Visual Seismic Screening with nonlinear static (pushover) analysis and probabilistic fragility assessment to evaluate seismic performance of an existing building, developed in OpenSeesPy.",
+    tags: ["OpenSeesPy", "Pushover", "Fragility"],
+    thumbnail: "https://i.postimg.cc/cCnbMDfm/Screenshot-2026-04-16-at-9-22-02-AM.png",
   },
   {
     icon: MapPin,
