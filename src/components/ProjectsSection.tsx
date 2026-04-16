@@ -229,7 +229,14 @@ const ProjectsSection = () => {
                       <h3 className="font-heading text-lg font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <p className="text-primary/60 text-xs font-heading mb-3">{project.subtitle}</p>
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                        <p className="text-primary/60 text-xs font-heading">{project.subtitle}</p>
+                        {project.title.includes("Gyapche") && (
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-heading font-bold border border-yellow-400/40 bg-yellow-400/15 text-yellow-400 animate-pulse">
+                            🎓 Final Year Project
+                          </span>
+                        )}
+                      </div>
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
                         {project.description}
                       </p>
