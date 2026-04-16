@@ -86,6 +86,11 @@ const ResearchSection = () => {
                       <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-heading font-semibold border ${config.color}`}>
                         {config.label}
                       </span>
+                      {item.title.includes("Gyapche") && (
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-heading font-bold border border-yellow-400/40 bg-yellow-400/15 text-yellow-400 animate-pulse">
+                          🎓 Final Year Project
+                        </span>
+                      )}
                     </div>
                     <h3 className="font-heading text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                       {item.title}
