@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone, Shield } from "lucide-react";
 
 interface Project {
   icon: React.ElementType;
