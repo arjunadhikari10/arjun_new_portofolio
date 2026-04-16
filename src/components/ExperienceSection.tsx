@@ -30,6 +30,11 @@ const labs = [
 
 const leadership = [
   {
+    icon: Building2,
+    title: "Intern – CodSoft",
+    detail: "Programming, data handling & technical problem-solving.",
+  },
+  {
     icon: Users,
     title: "Former President – SOKES",
     detail: "Society of Kaski Engineering Students, 2081. Organized first-ever Stand-Up Comedy at Pulchowk Campus.",
