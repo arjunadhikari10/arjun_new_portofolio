@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, GraduationCap, Briefcase } from "lucide-react";
+import { Download, GraduationCap } from "lucide-react";
 
 const education = [
   { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering — Tribhuvan University, Lalitpur" },
@@ -7,13 +7,6 @@ const education = [
   { year: "2006–2019", title: "Dhawalagiri Boarding School", detail: "Primary & Secondary Education (SEE) — Kaski, Nepal • GPA: 3.85/4.0" },
 ];
 
-const experience = [
-  { year: "2025", title: "Researcher – HydroLab", detail: "University of Cincinnati — Hydrological research" },
-  { year: "2025", title: "Researcher – Kathmandu Valley GeoLab", detail: "IOE + Duke University collaboration" },
-  { year: "Ongoing", title: "Multi Hazard Risk Assessment Lab", detail: "IOE Pulchowk Campus — Geohazard research" },
-  { year: "2023–Present", title: "Research Assistant", detail: "Groundwater & landslide studies at IOE" },
-  { year: "Intern", title: "CodSoft", detail: "Programming, data handling & technical problem-solving" },
-];
 
 const TimelineBlock = ({ items }: { items: { year: string; title: string; detail: string }[] }) => (
   <div className="relative">
@@ -65,19 +58,12 @@ const CVSection = () => {
           </button>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="max-w-xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h3 className="font-heading text-lg font-semibold mb-6 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-primary" /> Education
             </h3>
             <TimelineBlock items={education} />
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <h3 className="font-heading text-lg font-semibold mb-6 flex items-center gap-2">
-              <Briefcase className="w-5 h-5 text-primary" /> Experience
-            </h3>
-            <TimelineBlock items={experience} />
           </motion.div>
         </div>
       </div>
