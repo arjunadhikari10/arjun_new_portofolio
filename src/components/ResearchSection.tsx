@@ -35,13 +35,6 @@ const researchItems: Research[] = [
     supervisor: "Asst. Prof. Dr. Basanta Raj Adhikari",
     extra: "Expected completion: March 2026",
   },
-  {
-    status: "ongoing",
-    title: "Economic Feasibility of Managed Aquifer Recharge (MAR)",
-    description: "Cost analysis and feasibility study for MAR implementation in the Kathmandu Valley.",
-    funding: "Self-initiated",
-    supervisor: "Asst. Prof. Mahendra Raj Dhital",
-  },
 ];
 
 const statusConfig = {
