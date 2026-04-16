@@ -65,6 +65,13 @@ const projects: Project[] = [
     tags: ["Groundwater", "Economics", "Team"],
   },
   {
+    icon: Shield,
+    title: "Rapid Visual Seismic Screening (RVS)",
+    subtitle: "Seismic Performance Evaluation",
+    description: "Integrates Rapid Visual Seismic Screening with nonlinear static (pushover) analysis and probabilistic fragility assessment to evaluate seismic performance of an existing building, developed in OpenSeesPy.",
+    tags: ["OpenSeesPy", "Pushover", "Fragility"],
+    thumbnail: "https://i.postimg.cc/cCnbMDfm/Screenshot-2026-04-16-at-9-22-02-AM.png",
+  {
     icon: MapPin,
     title: "10 Days Survey Camp",
     subtitle: "Maps & Reports",
