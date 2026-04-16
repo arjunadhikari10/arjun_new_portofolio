@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, GraduationCap, Briefcase } from "lucide-react";
+import { Download, GraduationCap } from "lucide-react";
 
 const education = [
   { year: "2021–2026", title: "Pulchowk Campus, IOE", detail: "B.E. in Civil Engineering — Tribhuvan University, Lalitpur" },
