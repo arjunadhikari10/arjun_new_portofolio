@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone, Shield } from "lucide-react";
+import { ArrowRight, Droplets, Mountain, CloudRain, Building2, Camera, Leaf, MapPin, ExternalLink, Smartphone, Shield, Calculator } from "lucide-react";
 
 interface Project {
   icon: React.ElementType;
@@ -56,6 +56,16 @@ const projects: Project[] = [
     link: "https://ecoscan.arjunadhikari10.com.np/",
     featured: true,
     embedUrl: "https://ecoscan.arjunadhikari10.com.np/",
+  },
+  {
+    icon: Calculator,
+    title: "GeoYantra Pro",
+    subtitle: "Geotechnical & Water Resource Toolkit • Live Demo Available",
+    description: "A high-precision web application designed to bridge the gap between raw laboratory data and actionable engineering design — built for geotechnical and water resource engineering students and engineers.",
+    tags: ["Web App", "Geotechnical", "Engineering"],
+    link: "https://geoyantra.arjunadhikari10.com.np/",
+    featured: true,
+    embedUrl: "https://geoyantra.arjunadhikari10.com.np/",
   },
   {
     icon: Droplets,
