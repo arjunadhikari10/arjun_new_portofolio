@@ -93,8 +93,9 @@ const projects: Project[] = [
   },
 ];
 
-const EcoScanEmbed = ({ project }: { project: Project }) => {
+const LiveDemoEmbed = ({ project }: { project: Project }) => {
   const [isInteracting, setIsInteracting] = useState(false);
+  const Icon = project.icon;
 
   return (
     <motion.div
@@ -108,7 +109,7 @@ const EcoScanEmbed = ({ project }: { project: Project }) => {
         <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-gradient-to-r from-primary/10 via-transparent to-primary/5">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-primary/20">
-              <Leaf className="w-5 h-5 text-primary" />
+              <Icon className="w-5 h-5 text-primary" />
             </div>
             <div>
               <h3 className="font-heading text-lg font-semibold text-foreground flex items-center gap-2">
@@ -149,7 +150,7 @@ const EcoScanEmbed = ({ project }: { project: Project }) => {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                 </div>
                 <div className="flex-1 text-center">
-                  <span className="text-[10px] text-muted-foreground font-mono">ecoscan.arjunadhikari10.com.np</span>
+                  <span className="text-[10px] text-muted-foreground font-mono">{project.link?.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
                 </div>
               </div>
               <div 
@@ -178,7 +179,7 @@ const EcoScanEmbed = ({ project }: { project: Project }) => {
 
           {/* Side info panel */}
           <div className="p-6 border-l border-border/50 flex flex-col justify-center bg-gradient-to-b from-primary/5 to-transparent hidden md:flex">
-            <Leaf className="w-10 h-10 text-primary mb-4" />
+            <Icon className="w-10 h-10 text-primary mb-4" />
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               {project.description}
             </p>
@@ -189,11 +190,11 @@ const EcoScanEmbed = ({ project }: { project: Project }) => {
               </div>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                Built during PleasHack Hackathon
+                Click iframe to interact
               </div>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
-                Environmental monitoring concept
+                Open full app in new tab
               </div>
             </div>
           </div>
@@ -277,8 +278,9 @@ const ProjectsSection = () => {
         </div>
 
         {/* Featured EcoScan Embed */}
+        {/* Featured Live Demo Embeds */}
         {projects.filter(p => p.embedUrl).map((project) => (
-          <EcoScanEmbed key={project.title} project={project} />
+          <LiveDemoEmbed key={project.title} project={project} />
         ))}
       </div>
     </section>
