@@ -9,6 +9,7 @@ import CertificatesSection from "@/components/CertificatesSection";
 import TravellingSection from "@/components/TravellingSection";
 import AboutSection from "@/components/AboutSection";
 import CVSection from "@/components/CVSection";
+import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -26,7 +27,8 @@ const Index = () => (
       <ExperienceSection />
       <CertificatesSection />
       <TravellingSection />
-      <CVSection />
+        <BlogSection />
+        <CVSection />
       <ContactSection />
       <Footer />
     </div>
