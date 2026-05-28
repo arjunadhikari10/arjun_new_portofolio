@@ -11,6 +11,7 @@ const links = [
   { label: "Achievements", href: "#achievements" },
   { label: "Travels", href: "#travelling" },
   { label: "About", href: "#about" },
+  { label: "Blog", href: "#blog" },
   { label: "CV", href: "#cv" },
   { label: "Contact", href: "#contact" },
 ];
