@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Decoding a Mountain in Motion: Investigating the Gyapche Landslide, Nepal</title>
+<meta name="description" content="A field-to-lab-to-simulation investigation of the Gyapche Landslide in Ramechhap, Nepal by undergraduate civil engineers at IOE Pulchowk Campus." />
+<meta property="og:title" content="Decoding a Mountain in Motion: Gyapche Landslide Research" />
+<meta property="og:description" content="A field-to-lab-to-simulation investigation of one of Nepal's largest active landslides." />
+<meta property="og:image" content="https://i.postimg.cc/G2CDJppd/house.avif" />
+<meta property="og:type" content="article" />
+<link rel="icon" type="image/avif" href="https://i.postimg.cc/fy7dsJPv/IMG-6864.avif" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          heading: ['"Space Grotesk"', 'sans-serif'],
+          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          ink: '#0f172a',
+          muted: '#475569',
+          paper: '#fafaf7',
+          line: '#e6e6e0',
+          brand: '#0e7490',
+        },
+        maxWidth: { prose: '720px' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Serif 4', Georgia, serif; background: #fafaf7; color: #0f172a; }
+  .font-heading { font-family: 'Space Grotesk', sans-serif; }
+  .font-sans-ui { font-family: 'Inter', system-ui, sans-serif; }
+  .prose-article p { font-size: 1.125rem; line-height: 1.85; margin: 1.25rem 0; color: #1f2937; }
+  .prose-article h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.875rem; line-height: 1.25; margin: 3rem 0 1rem; font-weight: 700; color: #0f172a; letter-spacing: -0.01em; }
+  .prose-article h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin: 2rem 0 .5rem; font-weight: 600; color: #0f172a; }
+  .prose-article ol { padding-left: 1.25rem; }
+  .prose-article ol li { font-size: 1.0625rem; line-height: 1.8; margin: .75rem 0; color: #1f2937; }
+  .toc a { display: block; padding: .4rem .75rem; border-left: 2px solid transparent; color: #64748b; font-size: .875rem; transition: all .2s; }
+  .toc a:hover { color: #0e7490; }
+  .toc a.active { color: #0e7490; border-left-color: #0e7490; background: rgba(14,116,144,.05); font-weight: 600; }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .divider { display:flex; align-items:center; justify-content:center; margin: 3rem 0; }
+  .divider span { width: 6px; height: 6px; background: #cbd5e1; border-radius: 9999px; margin: 0 6px; }
+  #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #0e7490, #0891b2); z-index: 60; transition: width .1s; }
+  .share-btn { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius: 9999px; background:#fff; border:1px solid #e6e6e0; color:#334155; transition: all .2s; }
+  .share-btn:hover { color:#0e7490; border-color:#0e7490; transform: translateY(-2px); box-shadow: 0 8px 20px -10px rgba(14,116,144,.3); }
+  .back-top { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 9999px; background: #0f172a; color: white; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition: all .3s; z-index: 50; }
+  .back-top.show { opacity: 1; pointer-events: auto; }
+  @media (max-width: 1023px) {
+    .toc-wrap { position: static; }
+  }
+</style>
+</head>
+<body class="antialiased">
+  <div id="progress"></div>
+
+  <!-- HERO -->
+  <header class="relative">
+    <div class="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
+      <img src="https://i.postimg.cc/G2CDJppd/house.avif" alt="Gyapche landslide, Ramechhap, Nepal" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-paper"></div>
+      <div class="absolute inset-0 flex items-end">
+        <div class="max-w-4xl mx-auto px-6 pb-12 w-full">
+          <p class="font-sans-ui text-xs tracking-[0.25em] uppercase text-white/80 mb-4">Field Research · Nepal</p>
+          <h1 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4" style="letter-spacing:-0.02em;">
+            Decoding a Mountain in Motion: Investigating the Gyapche Landslide, Nepal
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 -mt-2">
+      <div class="bg-white border border-line rounded-2xl p-6 md:p-8 shadow-sm">
+        <p class="font-sans-ui text-sm text-muted mb-1">By</p>
+        <p class="font-heading text-lg font-semibold text-ink">Aakriti Thapa, Anmol Karki, Arjun Adhikari &amp; Ashok Khatri</p>
+        <div class="grid sm:grid-cols-3 gap-4 mt-5 font-sans-ui text-sm">
+          <div>
+            <p class="text-muted uppercase tracking-wider text-[11px] mb-1">Affiliation</p>
+            <p class="text-ink">Civil Engineering, IOE Pulchowk Campus</p>
+          </div>
+          <div>
+            <p class="text-muted uppercase tracking-wider text-[11px] mb-1">Supervisor</p>
+            <p class="text-ink">Asst. Prof. Dr. Basanta Raj Adhikari</p>
+          </div>
+          <div>
+            <p class="text-muted uppercase tracking-wider text-[11px] mb-1">Supported by</p>
+            <p class="text-ink">Nepal Flying Labs</p>
+          </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-line flex flex-wrap items-center gap-4 font-sans-ui text-xs text-muted">
+          <span>May 28, 2026</span>
+          <span>·</span>
+          <span id="read-time">8 min read</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <main class="max-w-7xl mx-auto px-6 mt-12 lg:mt-20 grid lg:grid-cols-[220px_minmax(0,1fr)_72px] gap-10">
+    <!-- TOC -->
+    <aside class="toc-wrap lg:sticky lg:top-24 self-start">
+      <details class="lg:open:!block" open>
+        <summary class="lg:hidden font-heading font-semibold text-ink mb-3 cursor-pointer">Contents</summary>
+        <p class="hidden lg:block font-sans-ui text-[11px] tracking-[0.2em] uppercase text-muted mb-3">Contents</p>
+        <nav class="toc font-sans-ui">
+          <a href="#introduction">Introduction</a>
+          <a href="#boots">Boots on the Ground</a>
+          <a href="#lab">From Field to Lab</a>
+          <a href="#pixels">Pixels, Code, and Simulations</a>
+          <a href="#engineering">Engineering a Safer Tomorrow</a>
+        </nav>
+      </details>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="prose-article max-w-prose mx-auto w-full">
+      <section id="introduction" class="fade-in scroll-mt-24">
+        <h2>When the Ground Beneath You Keeps Moving</h2>
+        <p>For the communities of Wards 3 and 4 in Manthali Municipality, Ramechhap, landslides are not abstract concepts. They are part of daily life—something you see, hear, and sometimes fear in silence.</p>
+        <p>Enter the Gyapche Landslide—one of Nepal's largest, most persistent, and most daunting active landslides. Having first broken ground back in 1954, this massive geological monster now spans elevations from 476 m to a staggering 2,091 m, covering over 4.4 square kilometers. It doesn't just reshape the topography—it actively threatens more than 250 households, vast stretches of fertile agricultural land, the vital Ranjor Suspension Bridge, and the regional lifeline: Manthali Airport.</p>
+        <p>For our final year civil engineering undergraduate project, we chose not to look away. Instead, we packed our bags, loaded our software, and set out to understand this mountain in motion—from every angle we could.</p>
+      </section>
+
+      <div class="divider"><span></span><span></span><span></span></div>
+
+      <section id="boots" class="fade-in scroll-mt-24">
+        <h2>Boots on the Ground: Two Wheels, Heavy Packs, and Local Hospitality</h2>
+        <p>Science on paper is neat. Science in the Himalayas is an adventure.</p>
+        <p>We conducted two field stints—3 days during the height of the monsoon and 6 days during the post-monsoon period. As four undergraduate students arriving in Manthali, we quickly realized that investigating a landslide of this scale requires a village. Literally.</p>
+        <p>The distance between Manthali Bazaar and the landslide's crown up in Kangba is enormous—commuting daily was out of the question. The local mayor stepped in and generously provided us with a motorbike. Our senior, Mr. Subash Thakuri, lent us another. Now mobilized as a four-person, two-bike team, we rode up winding, rugged mountain trails measuring the strike and dip and evaluating RMR ratings of exposed rock faces.</p>
+        <p>We stayed with a welcoming local family in Naudanda—right in the heart of the action. From there we hiked into the crown zone of Kangba the next day.</p>
+        <p><em>Nothing prepares you for that moment.</em></p>
+        <p>Standing at the head of the Gyapche landslide for the very first time, the four of us went quiet. The ground beneath our feet was cracked and displaced. Somewhere below us, we could hear the continuous rumble of rockfall—not occasional, not distant, but constant. A living, breathing, collapsing mountain. We watched rocks detach and tumble without warning, and every time one did, our hearts jumped. We were scared. There is no other honest way to say it.</p>
+        <p>We were four undergraduate students, standing on an actively failing slope, asking ourselves—can we actually study this?</p>
+        <p>What made it even more surreal was what we discovered during our second field visit, post-monsoon. A section of the slope we had walked through and observed during our first visit—before the monsoon—had completely slid away. The ground we had stood on no longer existed. That realization hit differently than any lecture on slope instability ever could.</p>
+        <p>But we steadied ourselves, pulled out our compasses and GPS units, mapped the tension cracks, observed the geology, collected our soil and rock samples, stuffed our backpacks until they ached—and made the long ride back down.</p>
+        <p>Then we moved base to Manthali and rode out to Gairathok—an area severely scarred by years of landslide movement. Here, engineering became deeply human. We sat with residents, listened to them describe how the shifting land threatens their homes and ancestral fields, and conducted Key Informant Interviews (KII) and Focus Group Discussions (FGD). It shifted our perspective from "data collection" to something that felt more like responsibility.</p>
+      </section>
+
+      <div class="divider"><span></span><span></span><span></span></div>
+
+      <section id="lab" class="fade-in scroll-mt-24">
+        <h2>From the Field to the Lab: Unlocking the Soil's Secrets</h2>
+        <p>Back in Kathmandu, our rooms at Pulchowk were suddenly filled with soil bags, rock cores, and a long to-do list. The goal was to turn physical earth into engineering parameters.</p>
+        <p>We ran a full battery of tests across Pulchowk Campus, the Department of Mines and Geology, and the National Academy of Science and Technology (NAST)—grain size distribution, bulk density, moisture content, direct shear tests, point load tests, and X-ray diffraction (XRD) mineralogical analysis to peer into the very chemistry of the rock mass and identify the weak mineral phases driving failure.</p>
+        <p>Eleven soil samples. Multiple rock cores. Hours of lab work.</p>
+      </section>
+
+      <div class="divider"><span></span><span></span><span></span></div>
+
+      <section id="pixels" class="fade-in scroll-mt-24">
+        <h2>Pixels, Code, and Simulations: Understanding the Flow</h2>
+        <p>With laboratory data in hand and high-resolution drone imagery from Nepal Flying Labs loaded up, we transitioned from dirty boots to desktop analysis. Our integrated study had four components:</p>
+        <h3>1. Crack Mapping &amp; Temporal Evolution</h3>
+        <p>Using field observations and multi-temporal satellite imagery spanning 2003 to 2025, we tracked how the landslide boundary and surface deformation have evolved over two decades. Watching a mountain slowly tear itself apart—year by year—is both fascinating and deeply unsettling.</p>
+        <h3>2. Slope Stability Analysis</h3>
+        <p>We built numerical models in SEEP/W and SLOPE/W, feeding in our laboratory shear strength parameters alongside transient monsoon rainfall as the driving boundary condition. We modeled three separate time periods—2007, 2017, and 2023—to capture not just a snapshot but the evolution of instability over time.</p>
+        <h3>3. Debris Flow Simulation via r.avaflow</h3>
+        <p>What happens if a massive chunk of the mountain completely lets go during a heavy cloudburst? To answer this, we used r.avaflow—an advanced open-source simulation tool for mass flows. We modeled two movement scenarios, carefully parameterizing the Ranjour River channel to account for how the debris picks up speed and volume as it travels downstream. We back-calibrated the model against the earlier event before applying it to the next—a rigorous check that tests whether the model actually works, not just whether it can be fitted.</p>
+        <h3>4. Landslide Susceptibility Mapping</h3>
+        <p>We built a GIS-based susceptibility map for the broader region using nine conditioning factors—slope, aspect, geology, land use, distance to roads and drainage, rainfall, curvature, and relative relief—weighted using the Analytical Hierarchy Process (AHP).</p>
+      </section>
+
+      <div class="divider"><span></span><span></span><span></span></div>
+
+      <section id="engineering" class="fade-in scroll-mt-24">
+        <h2>Engineering a Safer Tomorrow</h2>
+        <p>Our journey resulted in a comprehensive picture of one of Nepal's most hazardous and least studied active landslides. But the project was never just about academic outputs. By understanding the failure mechanisms and mapping the potential impact zones, we've proposed targeted engineering mitigation and stabilization measures—material that we hope becomes a scientific foundation for Manthali Municipality's disaster risk management.</p>
+        <p>We are deeply grateful to our supervisor, Asst. Prof. Dr. Basanta Raj Adhikari; the team at Nepal Flying Labs; the local government of Manthali Municipality; the Department of Hydrology and Meteorology; DMG; NAST; and most of all—the resilient people of Naudanda and Gairathok who opened their doors and shared their stories with us.</p>
+        <p>The Gyapche landslide is a mountain in motion. But with the right blend of community insight, field geology, and modern engineering, we can help the people living in its shadow stand their ground.</p>
+        <p class="text-muted italic mt-10">Have questions about our simulation approach, field methods, or experience on the ground? Drop a comment below—we'd love to hear from you.</p>
+      </section>
+
+      <div class="mt-16 pt-8 border-t border-line">
+        <a href="/" class="font-sans-ui text-sm text-brand hover:underline">← Back to portfolio</a>
+      </div>
+    </article>
+
+    <!-- SHARE -->
+    <aside class="hidden lg:flex flex-col items-center gap-3 sticky top-32 self-start">
+      <p class="font-sans-ui text-[10px] tracking-[0.2em] uppercase text-muted writing-vertical mb-2">Share</p>
+      <button class="share-btn" data-share="copy" title="Copy link" aria-label="Copy link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </button>
+      <button class="share-btn" data-share="linkedin" title="Share on LinkedIn" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </button>
+      <button class="share-btn" data-share="twitter" title="Share on X" aria-label="X">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.84l-5.36-6.84L4.2 22H.95l8.02-9.16L.5 2h7.02l4.83 6.26L18.244 2zm-1.2 18h1.84L7.04 4H5.1l11.944 16z"/></svg>
+      </button>
+      <button class="share-btn" data-share="whatsapp" title="Share on WhatsApp" aria-label="WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.2.2 2.2 3.4 5.3 4.6.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+      </button>
+      <button class="share-btn" data-share="email" title="Share via Email" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+      </button>
+    </aside>
+  </main>
+
+  <!-- mobile share bar -->
+  <div class="lg:hidden sticky bottom-0 bg-white/95 backdrop-blur border-t border-line py-3 px-6 flex items-center justify-around gap-2 z-40 mt-12">
+    <button class="share-btn" data-share="copy" aria-label="Copy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+    <button class="share-btn" data-share="linkedin" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></button>
+    <button class="share-btn" data-share="twitter" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.84l-5.36-6.84L4.2 22H.95l8.02-9.16L.5 2h7.02l4.83 6.26L18.244 2z"/></svg></button>
+    <button class="share-btn" data-share="whatsapp" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.2.2 2.2 3.4 5.3 4.6.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg></button>
+    <button class="share-btn" data-share="email" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></button>
+  </div>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <footer class="max-w-4xl mx-auto px-6 py-12 text-center font-sans-ui text-xs text-muted">
+    © 2026 Arjun Adhikari · Field research at IOE Pulchowk Campus
+  </footer>
+
+<script>
+  // Reading progress
+  const progress = document.getElementById('progress');
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progress.style.width = pct + '%';
+    backTop.classList.toggle('show', h.scrollTop > 500);
+  });
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Reading time
+  const words = document.querySelector('article').innerText.trim().split(/\s+/).length;
+  document.getElementById('read-time').textContent = Math.max(4, Math.round(words / 220)) + ' min read';
+
+  // Scrollspy
+  const links = document.querySelectorAll('.toc a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => s && spy.observe(s));
+
+  // Fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // Share
+  const title = 'Decoding a Mountain in Motion: Gyapche Landslide Research';
+  const url = window.location.href;
+  document.querySelectorAll('[data-share]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const type = btn.dataset.share;
+      const text = encodeURIComponent(title);
+      const u = encodeURIComponent(url);
+      const map = {
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+        twitter: `https://twitter.com/intent/tweet?text=${text}&url=${u}`,
+        whatsapp: `https://wa.me/?text=${text}%20${u}`,
+        email: `mailto:?subject=${text}&body=${text}%20-%20${u}`,
+      };
+      if (type === 'copy') {
+        try { await navigator.clipboard.writeText(url); btn.title = 'Copied!'; btn.style.color = '#0e7490'; setTimeout(() => { btn.title = 'Copy link'; btn.style.color = ''; }, 1500); }
+        catch { prompt('Copy link:', url); }
+      } else {
+        window.open(map[type], '_blank', 'noopener,width=600,height=500');
+      }
+    });
+  });
+</script>
+</body>
+</html>
