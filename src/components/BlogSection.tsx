@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar, Clock } from "lucide-react";
-import blogImage from "@/assets/gyapche-landslide.jpg";
 
 const featured = {
   title: "Decoding a Mountain in Motion: Investigating the Gyapche Landslide, Nepal",
@@ -8,10 +7,10 @@ const featured = {
   affiliation: "Civil Engineering, IOE Pulchowk Campus",
   tags: ["Landslide Research", "Geotechnical Engineering", "GIS & Remote Sensing"],
   excerpt:
-    "A comprehensive investigation of the Gyapche Landslide integrating UAV photogrammetry, field investigations, GeoStudio slope stability analysis, GIS-based susceptibility mapping, and r.avaflow runout simulation to understand slope failure mechanisms and downstream hazards.",
+    "A comprehensive investigation of the Gyapche Landslide integrating UAV photogrammetry, field investigations, GeoStudio slope stability analysis, and GIS-based susceptibility mapping.",
   readTime: "6 min read",
-  date: "2026",
-  image: blogImage,
+  date: "May 28, 2026",
+  image: "https://i.postimg.cc/G2CDJppd/house.avif",
   href: "#",
 };
 
@@ -42,23 +41,23 @@ const BlogSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="group relative max-w-3xl mx-auto"
+          className="group relative max-w-md mx-auto"
         >
           <a
             href={featured.href}
-            className="block rounded-3xl overflow-hidden border border-border bg-card/60 backdrop-blur-xl shadow-sm hover:shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.35)] hover:border-primary/30 transition-all duration-500 hover:-translate-y-1"
+            className="block rounded-2xl overflow-hidden border border-border bg-card/60 backdrop-blur-xl shadow-sm hover:shadow-[0_16px_48px_-16px_hsl(var(--primary)/0.3)] hover:border-primary/30 transition-all duration-500 hover:-translate-y-1"
           >
-            <div className="relative aspect-[16/9] overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden">
               <img
                 src={featured.image}
                 alt={featured.title}
                 loading="lazy"
-                width={1280}
-                height={768}
+                width={640}
+                height={400}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+              <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                 {featured.tags.map((tag, i) => (
                   <motion.span
                     key={tag}
@@ -66,7 +65,7 @@ const BlogSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 + i * 0.08 }}
-                    className="px-2.5 py-1 rounded-full text-[10px] font-heading font-semibold tracking-wide bg-background/70 backdrop-blur-md border border-border/60 text-foreground"
+                    className="px-2 py-0.5 rounded-full text-[10px] font-heading font-semibold tracking-wide bg-background/70 backdrop-blur-md border border-border/60 text-foreground"
                   >
                     {tag}
                   </motion.span>
@@ -74,34 +73,34 @@ const BlogSection = () => {
               </div>
             </div>
 
-            <div className="p-6 md:p-8">
-              <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-primary/70" />
+            <div className="p-5">
+              <div className="flex items-center gap-3 text-[11px] text-muted-foreground mb-3">
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3 text-primary/70" />
                   {featured.date}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-primary/70" />
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-primary/70" />
                   {featured.readTime}
                 </span>
               </div>
 
-              <h3 className="font-heading text-xl md:text-2xl font-bold leading-tight mb-3 group-hover:text-primary transition-colors">
+              <h3 className="font-heading text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors">
                 {featured.title}
               </h3>
 
-              <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-5">
+              <p className="text-muted-foreground text-xs leading-relaxed mb-4">
                 {featured.excerpt}
               </p>
 
-              <div className="text-xs text-muted-foreground mb-6">
+              <div className="text-[11px] text-muted-foreground mb-4">
                 <span className="text-foreground font-medium">{featured.authors}</span>
                 <span className="block mt-0.5 opacity-70">{featured.affiliation}</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 text-sm font-heading font-semibold text-primary">
+              <div className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-primary">
                 Read Article
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </div>
           </a>
