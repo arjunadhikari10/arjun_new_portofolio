@@ -11,7 +11,7 @@ const featured = {
   readTime: "6 min read",
   date: "May 28, 2026",
   image: "https://i.postimg.cc/G2CDJppd/house.avif",
-  href: "#",
+  href: "/blog/gyapche-landslide.html",
 };
 
 const BlogSection = () => {
