@@ -296,18 +296,17 @@
   }
   themeToggle.addEventListener('click', () => applyTheme(currentTheme() === 'dark' ? 'light' : 'dark'));
 
-  // Giscus comments — configure repo/category below to enable
-  // Setup: https://giscus.app  →  paste the values from there.
+  // Giscus comments
   const GISCUS = {
-    repo: 'YOUR_GITHUB_USERNAME/YOUR_REPO',         // e.g. 'arjun-adhikari/portfolio-comments'
-    repoId: 'YOUR_REPO_ID',
+    repo: 'arjunadhikari10/arjun_new_portofolio',
+    repoId: 'R_kgDOSBskUQ',
     category: 'Announcements',
-    categoryId: 'YOUR_CATEGORY_ID',
+    categoryId: 'DIC_kwDOSBskUc4C-D5_',
     mapping: 'pathname',
     strict: '0',
     reactionsEnabled: '1',
     emitMetadata: '0',
-    inputPosition: 'top',
+    inputPosition: 'bottom',
     lang: 'en',
   };
   function loadGiscus(){
