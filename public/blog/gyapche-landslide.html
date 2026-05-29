@@ -15,7 +15,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
+  // Apply theme before paint
+  (function(){
+    try {
+      var t = localStorage.getItem('gyapche-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (t === 'dark') document.documentElement.classList.add('dark');
+    } catch(e){}
+  })();
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         fontFamily: {
@@ -37,7 +46,7 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { font-family: 'Source Serif 4', Georgia, serif; background: #fafaf7; color: #0f172a; }
+  body { font-family: 'Source Serif 4', Georgia, serif; background: #fafaf7; color: #0f172a; transition: background-color .3s ease, color .3s ease; }
   .font-heading { font-family: 'Space Grotesk', sans-serif; }
   .font-sans-ui { font-family: 'Inter', system-ui, sans-serif; }
   .prose-article p { font-size: 1.125rem; line-height: 1.85; margin: 1.25rem 0; color: #1f2937; }
@@ -57,13 +66,45 @@
   .share-btn:hover { color:#0e7490; border-color:#0e7490; transform: translateY(-2px); box-shadow: 0 8px 20px -10px rgba(14,116,144,.3); }
   .back-top { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 9999px; background: #0f172a; color: white; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition: all .3s; z-index: 50; }
   .back-top.show { opacity: 1; pointer-events: auto; }
+  .theme-toggle { position: fixed; top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 9999px; background:#fff; border:1px solid #e6e6e0; color:#334155; display:flex; align-items:center; justify-content:center; z-index: 70; transition: all .25s; box-shadow: 0 4px 14px -6px rgba(0,0,0,.15); }
+  .theme-toggle:hover { transform: translateY(-2px); color:#0e7490; border-color:#0e7490; }
+  .theme-toggle .icon-sun { display:none; }
+  .theme-toggle .icon-moon { display:block; }
   @media (max-width: 1023px) {
     .toc-wrap { position: static; }
   }
+
+  /* DARK MODE */
+  html.dark body { background: #0b1220; color: #e2e8f0; }
+  html.dark .prose-article p,
+  html.dark .prose-article ol li { color: #cbd5e1; }
+  html.dark .prose-article h2,
+  html.dark .prose-article h3 { color: #f1f5f9; }
+  html.dark .bg-white { background-color: #111a2e !important; }
+  html.dark .bg-white\/95 { background-color: rgba(17,26,46,.95) !important; }
+  html.dark .border-line { border-color: #1f2a44 !important; }
+  html.dark .text-ink { color: #f1f5f9 !important; }
+  html.dark .text-muted { color: #94a3b8 !important; }
+  html.dark .divider span { background: #334155; }
+  html.dark .toc a { color: #94a3b8; }
+  html.dark .toc a:hover { color: #22d3ee; }
+  html.dark .toc a.active { color: #22d3ee; border-left-color: #22d3ee; background: rgba(34,211,238,.08); }
+  html.dark .share-btn { background:#111a2e; border-color:#1f2a44; color:#cbd5e1; }
+  html.dark .share-btn:hover { color:#22d3ee; border-color:#22d3ee; }
+  html.dark .theme-toggle { background:#111a2e; border-color:#1f2a44; color:#e2e8f0; }
+  html.dark .theme-toggle .icon-sun { display:block; }
+  html.dark .theme-toggle .icon-moon { display:none; }
+  html.dark .back-top { background:#22d3ee; color:#0b1220; }
+  html.dark #progress { background: linear-gradient(90deg, #22d3ee, #67e8f9); }
+  html.dark .bg-paper, html.dark .to-paper { --tw-gradient-to: #0b1220 !important; }
 </style>
 </head>
 <body class="antialiased">
   <div id="progress"></div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  </button>
 
   <!-- HERO -->
   <header class="relative">
@@ -183,6 +224,13 @@
         <p class="text-muted italic mt-10">Have questions about our simulation approach, field methods, or experience on the ground? Drop a comment below—we'd love to hear from you.</p>
       </section>
 
+      <!-- COMMENTS (Giscus) -->
+      <section id="comments" class="mt-16 pt-10 border-t border-line">
+        <h2 class="font-heading text-2xl font-bold text-ink mb-2">Comments</h2>
+        <p class="font-sans-ui text-sm text-muted mb-6">Powered by Giscus — sign in with GitHub to leave a comment.</p>
+        <div id="giscus-container"></div>
+      </section>
+
       <div class="mt-16 pt-8 border-t border-line">
         <a href="/" class="font-sans-ui text-sm text-brand hover:underline">← Back to portfolio</a>
       </div>
@@ -237,6 +285,56 @@
     backTop.classList.toggle('show', h.scrollTop > 500);
   });
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  function currentTheme(){ return document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }
+  function applyTheme(t){
+    document.documentElement.classList.toggle('dark', t === 'dark');
+    try { localStorage.setItem('gyapche-theme', t); } catch(e){}
+    loadGiscus(); // reload with matching theme
+  }
+  themeToggle.addEventListener('click', () => applyTheme(currentTheme() === 'dark' ? 'light' : 'dark'));
+
+  // Giscus comments — configure repo/category below to enable
+  // Setup: https://giscus.app  →  paste the values from there.
+  const GISCUS = {
+    repo: 'YOUR_GITHUB_USERNAME/YOUR_REPO',         // e.g. 'arjun-adhikari/portfolio-comments'
+    repoId: 'YOUR_REPO_ID',
+    category: 'Announcements',
+    categoryId: 'YOUR_CATEGORY_ID',
+    mapping: 'pathname',
+    strict: '0',
+    reactionsEnabled: '1',
+    emitMetadata: '0',
+    inputPosition: 'top',
+    lang: 'en',
+  };
+  function loadGiscus(){
+    const container = document.getElementById('giscus-container');
+    if (!container) return;
+    if (GISCUS.repo.startsWith('YOUR_')) {
+      container.innerHTML = '<div class="font-sans-ui text-sm p-5 rounded-xl border border-line bg-white text-muted">Giscus is wired up but not yet configured. Visit <a class="text-brand underline" href="https://giscus.app" target="_blank" rel="noopener">giscus.app</a>, enable Discussions on your GitHub repo, then paste your <code>repo</code>, <code>repoId</code>, <code>category</code>, and <code>categoryId</code> into the <code>GISCUS</code> object in this file.</div>';
+      return;
+    }
+    container.innerHTML = '';
+    const s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.async = true; s.crossOrigin = 'anonymous';
+    s.setAttribute('data-repo', GISCUS.repo);
+    s.setAttribute('data-repo-id', GISCUS.repoId);
+    s.setAttribute('data-category', GISCUS.category);
+    s.setAttribute('data-category-id', GISCUS.categoryId);
+    s.setAttribute('data-mapping', GISCUS.mapping);
+    s.setAttribute('data-strict', GISCUS.strict);
+    s.setAttribute('data-reactions-enabled', GISCUS.reactionsEnabled);
+    s.setAttribute('data-emit-metadata', GISCUS.emitMetadata);
+    s.setAttribute('data-input-position', GISCUS.inputPosition);
+    s.setAttribute('data-theme', currentTheme() === 'dark' ? 'dark_dimmed' : 'light');
+    s.setAttribute('data-lang', GISCUS.lang);
+    container.appendChild(s);
+  }
+  loadGiscus();
 
   // Reading time
   const words = document.querySelector('article').innerText.trim().split(/\s+/).length;
