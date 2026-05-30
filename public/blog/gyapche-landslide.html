@@ -97,6 +97,29 @@
   html.dark .back-top { background:#22d3ee; color:#0b1220; }
   html.dark #progress { background: linear-gradient(90deg, #22d3ee, #67e8f9); }
   html.dark .bg-paper, html.dark .to-paper { --tw-gradient-to: #0b1220 !important; }
+
+  /* Figures & Slideshows */
+  .article-figure { max-width: 900px; margin: 2.5rem auto; }
+  .article-figure .frame { position: relative; width: 100%; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px -12px rgba(15,23,42,.25); background:#0f172a; aspect-ratio: 16 / 10; }
+  .article-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; display:block; }
+  .article-figure .frame:hover img { transform: scale(1.04); }
+  .article-figure figcaption { text-align: center; font-family: 'Inter', system-ui, sans-serif; font-size: .875rem; color: #475569; margin-top: .85rem; line-height: 1.5; padding: 0 1rem; }
+  html.dark .article-figure figcaption { color: #94a3b8; }
+  html.dark .article-figure .frame { box-shadow: 0 10px 30px -12px rgba(0,0,0,.6); background:#0b1220; }
+
+  .slideshow { position: relative; }
+  .slideshow .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+  .slideshow .slide.active { opacity: 1; }
+  .slideshow .slide img { width:100%; height:100%; object-fit: cover; }
+  .slideshow .dots { position: absolute; bottom: 12px; left: 0; right: 0; display:flex; justify-content:center; gap:6px; z-index: 2; }
+  .slideshow .dots span { width: 6px; height: 6px; border-radius: 9999px; background: rgba(255,255,255,.5); transition: all .3s; }
+  .slideshow .dots span.active { background:#fff; width: 18px; }
+  .slideshow-caption { transition: opacity .4s ease; }
+  @media (max-width: 640px) {
+    .article-figure { margin: 2rem auto; }
+    .article-figure .frame { border-radius: 12px; aspect-ratio: 4 / 3; }
+    .article-figure figcaption { font-size: .8125rem; }
+  }
 </style>
 </head>
 <body class="antialiased">
@@ -188,6 +211,19 @@
         <p>What made it even more surreal was what we discovered during our second field visit, post-monsoon. A section of the slope we had walked through and observed during our first visit—before the monsoon—had completely slid away. The ground we had stood on no longer existed. That realization hit differently than any lecture on slope instability ever could.</p>
         <p>But we steadied ourselves, pulled out our compasses and GPS units, mapped the tension cracks, observed the geology, collected our soil and rock samples, stuffed our backpacks until they ached—and made the long ride back down.</p>
         <p>Then we moved base to Manthali and rode out to Gairathok—an area severely scarred by years of landslide movement. Here, engineering became deeply human. We sat with residents, listened to them describe how the shifting land threatens their homes and ancestral fields, and conducted Key Informant Interviews (KII) and Focus Group Discussions (FGD). It shifted our perspective from "data collection" to something that felt more like responsibility.</p>
+
+        <figure class="article-figure">
+          <div class="frame slideshow" data-slideshow data-interval="4000">
+            <div class="slide active"><img src="https://i.postimg.cc/G2CDJppd/house.avif" alt="House at landslide site" data-caption="Households living directly within the active Gyapche landslide zone" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/Ghn3dF7F/IMG-2985.avif" alt="Local resident" data-caption="Conversations with elderly residents who have witnessed the slope evolve for decades" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/RVGD09Sk/attitude.jpg" alt="Measuring strike and dip" data-caption="Measuring strike and dip of geological discontinuities on exposed rock faces" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/3Jg3fkZC/sample.avif" alt="Sample collection" data-caption="Collecting soil and rock samples — this location disappeared during a later field visit due to continued slope movement" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/htWffF2C/budo-2.avif" alt="Discussion with locals" data-caption="Discussion with local residents regarding livelihood and landslide impact" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/MTrCXSb3/kii.avif" alt="Key informant interview" data-caption="Key Informant Interviews to understand the social and economic consequences of the landslide" /></div>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <figcaption class="slideshow-caption">Households living directly within the active Gyapche landslide zone</figcaption>
+        </figure>
       </section>
 
       <div class="divider"><span></span><span></span><span></span></div>
@@ -197,6 +233,17 @@
         <p>Back in Kathmandu, our rooms at Pulchowk were suddenly filled with soil bags, rock cores, and a long to-do list. The goal was to turn physical earth into engineering parameters.</p>
         <p>We ran a full battery of tests across Pulchowk Campus, the Department of Mines and Geology, and the National Academy of Science and Technology (NAST)—grain size distribution, bulk density, moisture content, direct shear tests, point load tests, and X-ray diffraction (XRD) mineralogical analysis to peer into the very chemistry of the rock mass and identify the weak mineral phases driving failure.</p>
         <p>Eleven soil samples. Multiple rock cores. Hours of lab work.</p>
+
+        <figure class="article-figure">
+          <div class="frame slideshow" data-slideshow data-interval="4000">
+            <div class="slide active"><img src="https://i.postimg.cc/mgCBqtN1/hydrometer.avif" alt="Hydrometer analysis" data-caption="Hydrometer analysis performed at Pulchowk Campus Geotechnical Laboratory" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/y6RKWDtn/sieve.avif" alt="Sieve analysis" data-caption="Grain size distribution testing using sieve analysis" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/kgmg7Q5j/plt.avif" alt="Point Load Test" data-caption="Point Load Test conducted at the Department of Mines and Geology" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/SR4mmqSq/IMG-3830.avif" alt="Direct shear test" data-caption="Direct shear test to determine the shear strength parameters of the soil" /></div>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <figcaption class="slideshow-caption">Hydrometer analysis performed at Pulchowk Campus Geotechnical Laboratory</figcaption>
+        </figure>
       </section>
 
       <div class="divider"><span></span><span></span><span></span></div>
@@ -219,6 +266,17 @@
       <section id="engineering" class="fade-in scroll-mt-24">
         <h2>Engineering a Safer Tomorrow</h2>
         <p>Our journey resulted in a comprehensive picture of one of Nepal's most hazardous and least studied active landslides. But the project was never just about academic outputs. By understanding the failure mechanisms and mapping the potential impact zones, we've proposed targeted engineering mitigation and stabilization measures—material that we hope becomes a scientific foundation for Manthali Municipality's disaster risk management.</p>
+
+        <figure class="article-figure">
+          <div class="frame slideshow" data-slideshow data-interval="4000">
+            <div class="slide active"><img src="https://i.postimg.cc/0yTdkHwp/Team.avif" alt="Research team" data-caption="The research team during the Gyapche Landslide investigation" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/HczZgbp3/awards.jpg" alt="Award" data-caption="Best Undergraduate Geotechnical Project Award presented by Nepal Geotechnical Society (NGS)" /></div>
+            <div class="slide"><img src="https://i.postimg.cc/QtbMzHDS/supervisor.avif" alt="Team with supervisor" data-caption="Research team with project supervisor after receiving the Best Undergraduate Geotechnical Project Award" /></div>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <figcaption class="slideshow-caption">The research team during the Gyapche Landslide investigation</figcaption>
+        </figure>
+
         <p>We are deeply grateful to our supervisor, Asst. Prof. Dr. Basanta Raj Adhikari; the team at Nepal Flying Labs; the local government of Manthali Municipality; the Department of Hydrology and Meteorology; DMG; NAST; and most of all—the resilient people of Naudanda and Gairathok who opened their doors and shared their stories with us.</p>
         <p>The Gyapche landslide is a mountain in motion. But with the right blend of community insight, field geology, and modern engineering, we can help the people living in its shadow stand their ground.</p>
         <p class="text-muted italic mt-10">Have questions about our simulation approach, field methods, or experience on the ground? Drop a comment below—we'd love to hear from you.</p>
@@ -379,6 +437,46 @@
         window.open(map[type], '_blank', 'noopener,width=600,height=500');
       }
     });
+  });
+
+  // Slideshows (reusable, vanilla)
+  document.querySelectorAll('[data-slideshow]').forEach(root => {
+    const slides = root.querySelectorAll('.slide');
+    if (!slides.length) return;
+    const interval = parseInt(root.dataset.interval || '4000', 10);
+    const dotsWrap = root.querySelector('.dots');
+    const caption = root.parentElement.querySelector('.slideshow-caption');
+    let idx = 0, timer = null, paused = false;
+
+    if (dotsWrap) {
+      slides.forEach((_, i) => {
+        const d = document.createElement('span');
+        if (i === 0) d.classList.add('active');
+        dotsWrap.appendChild(d);
+      });
+    }
+    const dots = dotsWrap ? dotsWrap.querySelectorAll('span') : [];
+
+    function show(i){
+      slides[idx].classList.remove('active');
+      if (dots[idx]) dots[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('active');
+      if (caption) {
+        const cap = slides[idx].querySelector('img')?.dataset.caption;
+        if (cap) {
+          caption.style.opacity = '0';
+          setTimeout(() => { caption.textContent = cap; caption.style.opacity = '1'; }, 200);
+        }
+      }
+    }
+    function start(){ stop(); timer = setInterval(() => { if (!paused) show(idx + 1); }, interval); }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+
+    root.addEventListener('mouseenter', () => { paused = true; });
+    root.addEventListener('mouseleave', () => { paused = false; });
+    start();
   });
 </script>
 </body>
